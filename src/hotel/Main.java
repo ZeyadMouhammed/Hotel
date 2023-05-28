@@ -18,10 +18,11 @@ public class Main {
         HotelManger.HotelReader();
 
         RoomManger.setRoom(HotelManger.floor());
+        RoomManger.roomReader();
         HotelApp.setHotel(HotelManger.getHotel());
         Workers.setHotel(HotelManger.getHotel());
 
-        RoomManger.HotelReader();
+
         SignUpLogInManger.SignUpReader();
         new LogIN();
 
@@ -30,7 +31,7 @@ public class Main {
         int x = sc.nextInt();
 
         if(x==1) {
-            RoomManger.HotelReader();
+
         }
 
 

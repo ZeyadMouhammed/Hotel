@@ -14,7 +14,6 @@ public class HotelManger implements Serializable {
 
     public static void setHotel(Hotel hotel1){
         hotel =hotel1;
-        System.out.println(hotel==hotel1);
     }
 
     public static Hotel getHotel() {
@@ -33,8 +32,6 @@ public class HotelManger implements Serializable {
     }
 
     public static void HotelReader() throws Exception {
-
-        System.out.println(file.length());
 
         if (file.length() != 0) {
 

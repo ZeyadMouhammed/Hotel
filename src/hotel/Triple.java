@@ -72,6 +72,26 @@ public class Triple extends Room implements Serializable {
                 "\n NumberOfBeds " + NumberOfBeds;
     }
 
+
+    @Override
+    public  String toLine() {
+        return Area+";"+pricePerDay+";"+View+";"+NumberOfBeds;
+    }
+
+    public void formLine(String line) {
+
+        String[] splits = line.split(";");
+        int area = Integer.valueOf(splits[0]);
+        int price = Integer.valueOf(splits[1]);
+        String view = splits[2];
+        int numberOfBeds = Integer.valueOf(splits[3]);
+
+        Triple.setArea(area);
+        Triple.setPricePerDay(price);
+        Triple.setView(view);
+
+    }
+
     @Override
     public int getAreaRoom() {
         return Area;

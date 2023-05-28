@@ -52,6 +52,9 @@ public abstract class Room implements Serializable  {
         this.numberOfDays = numberOfDays;
     }
 
+    public abstract void formLine(String line);
+
+    public abstract String toLine();
 
     public abstract int getAreaRoom();
     public abstract String getViewRoom();

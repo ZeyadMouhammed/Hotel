@@ -89,6 +89,26 @@ public class RoyalSuite extends Room implements Serializable {
     }
 
     @Override
+    public  String toLine() {
+        return Area+";"+pricePerDay+";"+View+";"+NumberOfBeds;
+    }
+
+    public void formLine(String line) {
+
+        String[] splits = line.split(";");
+        int area = Integer.valueOf(splits[0]);
+        int price = Integer.valueOf(splits[1]);
+        String view = splits[2];
+        int numberOfBeds = Integer.valueOf(splits[3]);
+
+        RoyalSuite.setArea(area);
+        RoyalSuite.setPricePerDay(price);
+        RoyalSuite.setView(view);
+        RoyalSuite.setNumberOfBeds(numberOfBeds);
+
+    }
+
+    @Override
     public int getAreaRoom() {
         return Area;
     }

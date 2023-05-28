@@ -63,13 +63,31 @@ public class Quad extends Room implements Serializable {
         return roomID;
     }
 
-
     public static String display() {
         return  " Quad " +
                 "\n Area " + Area +
                 "\n PricePerDay " + pricePerDay +
                 "\n View " + View +
                 "\n NumberOfBeds " + NumberOfBeds;
+    }
+
+    @Override
+    public  String toLine() {
+        return Area+";"+pricePerDay+";"+View+";"+NumberOfBeds;
+    }
+
+    public void formLine(String line) {
+
+        String[] splits = line.split(";");
+        int area = Integer.valueOf(splits[0]);
+        int price = Integer.valueOf(splits[1]);
+        String view = splits[2];
+        int numberOfBeds = Integer.valueOf(splits[3]);
+
+        Quad.setArea(area);
+        Quad.setPricePerDay(price);
+        Quad.setView(view);
+
     }
 
     @Override

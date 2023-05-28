@@ -71,6 +71,25 @@ public class Single extends Room implements Serializable {
     }
 
     @Override
+    public void formLine(String line) {
+
+        String[] splits = line.split(";");
+        int area = Integer.valueOf(splits[0]);
+        int price = Integer.valueOf(splits[1]);
+        String view = splits[2];
+        int numberOfBeds = Integer.valueOf(splits[3]);
+
+        Single.setArea(area);
+        Single.setPricePerDay(price);
+        Single.setView(view);
+
+    }
+
+    @Override
+    public  String toLine() {
+        return Area+";"+pricePerDay+";"+View+";"+NumberOfBeds;
+    }
+    @Override
     public int getAreaRoom() {
         return Area;
     }

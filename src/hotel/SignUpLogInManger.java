@@ -24,8 +24,6 @@ public class SignUpLogInManger implements Serializable {
 
     public static void SignUpReader() throws Exception {
 
-        System.out.println(file.length());
-
         if (file.length() != 0) {
 
             ArrayList<Guest> guests = new ArrayList<Guest>();

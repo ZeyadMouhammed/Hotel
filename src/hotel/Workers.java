@@ -130,12 +130,13 @@ public class Workers extends JFrame implements ActionListener {
                 RoyalSuite.setPricePerDay(Integer.valueOf(dayFiled.getText()));
                 RoyalSuite.setNumberOfBeds(Integer.valueOf(bedFiled.getText()));
             }
-            RoomManger.clear();
+
             try {
-                RoomManger.HotelWriter();
+                RoomManger.roomWriter();
             } catch (Exception ex) {
                 throw new RuntimeException(ex);
             }
+
             HotelManger.clear();
             try {
                 HotelManger.HotelWriter();
@@ -169,13 +170,11 @@ public class Workers extends JFrame implements ActionListener {
         if (e.getSource() == apply2) {
             if (a != -1) hotel.getRoom(a, b).setLock(cardFiled.getText(), Integer.valueOf(passwordFiled.getText()));
 
-            RoomManger.clear();
             try {
-                RoomManger.HotelWriter();
+                RoomManger.roomWriter();
             } catch (Exception ex) {
                 throw new RuntimeException(ex);
             }
-        }
 
             HotelManger.clear();
             try {
@@ -183,6 +182,9 @@ public class Workers extends JFrame implements ActionListener {
             } catch (Exception ex) {
                 throw new RuntimeException(ex);
             }
+        }
+
+
 
 
         if (e.getSource() == backButton) {

@@ -1,45 +1,41 @@
 package hotel;
 
 import java.io.*;
+import java.util.Scanner;
 
 public class RoomManger {
     private static File file = new File("Room.txt");
-    private static FileOutputStream writer;
-    private static ObjectOutputStream writerStream;
-    private static FileInputStream reader;
-    private static ObjectInputStream readerStream;
-    private static Room rooms[];
+    private static FileWriter writer;
+    private static Room[] rooms;
 
-    public static void HotelWriter() throws Exception {
 
-        writer = new FileOutputStream("Room.txt");
-        writerStream = new ObjectOutputStream(writer);
+    public static void roomWriter() throws Exception{
 
-        writerStream.writeObject(rooms);
-        writerStream.flush();
-        writerStream.close();
+        writer = new FileWriter("Room.txt");
+
+        writer.append(rooms[0].toLine()+"\n");
+        writer.append(rooms[1].toLine()+"\n");
+        writer.append(rooms[2].toLine()+"\n");
+        writer.append(rooms[3].toLine()+"\n");
+        writer.append(rooms[4].toLine()+"\n");
+        writer.append(rooms[5].toLine());
+        writer.close();
 
     }
 
-    public static void HotelReader() throws Exception {
+    public static void roomReader() throws Exception{
 
-        System.out.println(file.length());
+        Scanner sc = new Scanner(file);
 
-        if (file.length() != 0) {
-
-            reader = new FileInputStream("Room.txt");
-            readerStream = new ObjectInputStream(reader);
-
-            rooms = (Room[]) readerStream.readObject();
-            readerStream.close();
-
-            System.out.println(rooms[0].getAreaRoom());
-
-            Single.setArea(rooms[0].getAreaRoom());
-            Single.setView(rooms[0].getViewRoom());
-            Single.setPricePerDay(rooms[0].getPrice());
-
-        }
+      if(file.length()!=0) {
+          int i = 0;
+          while (sc.hasNextLine()) {
+              String line = sc.next();
+              rooms[i].formLine(line);
+              i++;
+          }
+          sc.close();
+      }
     }
 
 

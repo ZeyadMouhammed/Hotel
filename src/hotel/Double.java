@@ -63,6 +63,24 @@ public class Double extends Room implements Serializable {
         return roomID;
     }
 
+    @Override
+    public  String toLine() {
+        return Area+";"+pricePerDay+";"+View+";"+NumberOfBeds;
+    }
+    @Override
+    public void formLine(String line) {
+
+        String[] splits = line.split(";");
+        int area = Integer.valueOf(splits[0]);
+        int price = Integer.valueOf(splits[1]);
+        String view = splits[2];
+        int numberOfBeds = Integer.valueOf(splits[3]);
+
+        Double.setArea(area);
+        Double.setPricePerDay(price);
+        Double.setView(view);
+
+    }
 
     public static String display() {
         return  " Double " +
