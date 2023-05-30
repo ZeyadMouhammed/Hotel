@@ -10,8 +10,6 @@ public class Address implements Serializable {
     private String streetName;
     private String buildingName;
 
-    private static ArrayList<Address> addresses = new ArrayList(); //TODO:da y5od kol ell address
-
     public Address(String city, String neighborhood, String streetName) {
         this.city = city;
         this.neighborhood=neighborhood;

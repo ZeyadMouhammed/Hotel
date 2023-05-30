@@ -8,7 +8,7 @@ public class Main {
 
         Address hotelAddress = new Address("Alexandria","","");
 
-        Hotel hotel = new Hotel(hotelAddress);
+        Hotel hotel = new Hotel("Hotel",hotelAddress);
 
         Employee employee = new Employee("xxx","xx",hotelAddress,"zz",0,"Workers","123");
 
@@ -25,16 +25,6 @@ public class Main {
 
         SignUpLogInManger.SignUpReader();
         new LogIN();
-
-        Scanner sc = new Scanner(System.in);
-
-        int x = sc.nextInt();
-
-        if(x==1) {
-
-        }
-
-
 
     }
 }

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Hotel implements Payment, Serializable{
+    private String title;
     private Room hotel[][] =
             {{new Single(), new Double(), new Triple(), new Quad(), new Suite(), new RoyalSuite()},
             {new Single(), new Double(), new Triple(), new Quad(), new Suite(), new RoyalSuite()},
@@ -23,7 +24,8 @@ public class Hotel implements Payment, Serializable{
     private ArrayList<String> transactions = new ArrayList();
     private Employee employee;
 
-    public Hotel(Address address) {
+    public Hotel(String title, Address address) {
+        this.title=title;
         this.address = address;
     }
 
