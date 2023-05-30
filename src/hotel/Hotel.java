@@ -110,6 +110,18 @@ public class Hotel implements Payment, Serializable{
         return "not found";
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+
     public int roomsNumber(){
         int bookedRooms=0;
         for(int i=0;i<hotel.length;i++){
