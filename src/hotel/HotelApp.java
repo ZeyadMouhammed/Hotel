@@ -80,8 +80,8 @@ public class HotelApp extends JFrame implements ActionListener {
         }
         if (e.getSource() == bookB) {
             if (Hotel.getRoom(floorBox.getSelectedIndex(), roomBox.getSelectedIndex()).booked == false) {
-                Hotel.getRoom(floorBox.getSelectedIndex(), roomBox.getSelectedIndex()).setNumberOfDays(Integer.valueOf(JOptionPane.showInputDialog("enter number of days")));
-                double price = Hotel.getRoom(floorBox.getSelectedIndex(), roomBox.getSelectedIndex()).getPrice() * Hotel.getRoom(floorBox.getSelectedIndex(), roomBox.getSelectedIndex()).getNumberOfDays();
+                Hotel.getRoom(floorBox.getSelectedIndex(), roomBox.getSelectedIndex()).setNumberOfRentedDays(Integer.valueOf(JOptionPane.showInputDialog("enter number of days")));
+                double price = Hotel.getRoom(floorBox.getSelectedIndex(), roomBox.getSelectedIndex()).getPrice() * Hotel.getRoom(floorBox.getSelectedIndex(), roomBox.getSelectedIndex()).getNumberOfRentedDays();
                 if (guest.getBalance() >= price) {
                     guest.withdraw(price);
                     Hotel.addTOBalance(price);
@@ -91,7 +91,7 @@ public class HotelApp extends JFrame implements ActionListener {
                     Hotel.addGuest(guest);
                 } else {
                     JOptionPane.showMessageDialog(null, "not enough money in your wallet");
-                    Hotel.getRoom(floorBox.getSelectedIndex(), roomBox.getSelectedIndex()).setNumberOfDays(0);
+                    Hotel.getRoom(floorBox.getSelectedIndex(), roomBox.getSelectedIndex()).setNumberOfRentedDays(0);
                 }
             } else JOptionPane.showMessageDialog(null, "Room is already booked", null, JOptionPane.INFORMATION_MESSAGE);
 
@@ -115,7 +115,7 @@ public class HotelApp extends JFrame implements ActionListener {
         if (e.getSource() == cancelBookingB) {
             if(Hotel.getRoom(floorBox.getSelectedIndex(), roomBox.getSelectedIndex()).getBooked()) {
                 if (guest.checkBooking(Hotel.getRoom(floorBox.getSelectedIndex(), roomBox.getSelectedIndex()))) {
-                    double price = Hotel.getRoom(floorBox.getSelectedIndex(), roomBox.getSelectedIndex()).getPrice() * Hotel.getRoom(floorBox.getSelectedIndex(), roomBox.getSelectedIndex()).getNumberOfDays();
+                    double price = Hotel.getRoom(floorBox.getSelectedIndex(), roomBox.getSelectedIndex()).getPrice() * Hotel.getRoom(floorBox.getSelectedIndex(), roomBox.getSelectedIndex()).getNumberOfRentedDays();
                     Hotel.cancelBooking(floorBox.getSelectedIndex(), roomBox.getSelectedIndex());
                     Hotel.withdraw(price);
                     guest.cancelBooking(Hotel.getRoom(floorBox.getSelectedIndex(), roomBox.getSelectedIndex()));

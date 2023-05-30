@@ -8,7 +8,7 @@ public abstract class Room implements Serializable  {
     protected int roomNo;
     protected static int NumOfRooms;
     protected Lock lock;
-    protected int numberOfDays;
+    protected int numberOfRentedDays;
 
     public static int getNumOfRooms() {
         return NumOfRooms;
@@ -44,12 +44,12 @@ public abstract class Room implements Serializable  {
         else return "no";
     }
 
-    public int getNumberOfDays() {
-        return numberOfDays;
+    public int getNumberOfRentedDays() {
+        return numberOfRentedDays;
     }
 
-    public void setNumberOfDays(int numberOfDays) {
-        this.numberOfDays = numberOfDays;
+    public void setNumberOfRentedDays(int numberOfRentedDays) {
+        this.numberOfRentedDays = numberOfRentedDays;
     }
 
     public abstract void formLine(String line);

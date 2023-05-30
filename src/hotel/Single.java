@@ -118,7 +118,7 @@ public class Single extends Room implements Serializable {
                 "\n Room Number " + getRoomNo() +
                 "\n Room Lock " + getLock() +
                 "\n Booked " + Booked()+
-                "\n Number of rented days "+ numberOfDays;
+                "\n Number of rented days "+ numberOfRentedDays;
     }
 
 
